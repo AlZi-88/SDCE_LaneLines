@@ -23,7 +23,7 @@ The goals / steps of this project are the following:
 
 ### 1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
 
-My pipeline consisted of 5 steps. First, I converted the images to grayscale, then I .... 
+My pipeline consisted of 5 steps. First, I converted the images to grayscale, then I blurred the grayscale image with a kernel size of 7 to filter the image and avoid the pipeline to be too sensitiv for gradient detection. The third step is the gradient detection via canny edge detection. This function searches for high gradients in grayscale and ignores all the others
 
 In order to draw a single line on the left and right lanes, I modified the draw_lines() function by ...
 
