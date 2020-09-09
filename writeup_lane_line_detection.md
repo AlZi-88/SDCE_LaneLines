@@ -23,7 +23,8 @@ The goals / steps of this project are the following:
 
 ### 1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
 
-My pipeline consisted of 5 steps. First, I converted the images to grayscale, then I blurred the grayscale image with a kernel size of 7 to filter the image and avoid the pipeline to be too sensitiv for gradient detection. The third step is the gradient detection via canny edge detection. This function searches for high gradients in grayscale and ignores all the others
+My pipeline consisted of 5 steps. First, I converted the images to grayscale, then I blurred the grayscale image with a kernel size of 7 to filter the image and avoid the pipeline to be too sensitiv for gradient detection. The third step is the gradient detection via canny edge detection. This function searches for high gradients in the grayscale image and keeps the rest of the image black. The fourth step is to define an area of interest where the algorithm should look for the lane lines via region masking. This makes the algorithm much more robust because otherwise the algorithm might find lines all over the image where it isn't from interest.
+The last set finally is to combine the bright pixels in the image to a real line. This is done via hough transformation, where for each point all possible lines with gradient and bias are defined in the so called hough space. A point where multiple lines are crossing define then the slope and bias of the corresponding line.
 
 In order to draw a single line on the left and right lanes, I modified the draw_lines() function by ...
 
